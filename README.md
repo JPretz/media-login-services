@@ -1,20 +1,28 @@
 # Media Login Services
 
-This project demonstrates integrating multiple authentication methods:
-- **Local login** with username & password  
-- **GitHub login (OAuth)**  
-- **Google login (OAuth)**  
-
-It includes session management, error handling, secure handling of OAuth tokens, and a responsive login interface.
+This project demonstrates integration of multiple login methods using **OAuth 2.0 (GitHub & Google)**, **local username/password authentication**, and **session persistence** with SQLite.
 
 ---
 
- 🚀 Setup Instructions
+## 🚀 Features
+- GitHub login with OAuth 2.0
+- Google login with OAuth 2.0
+- Local login (username/password, hashed with bcrypt)
+- Secure session persistence with `express-session`
+- Error handling for failed logins
+- Responsive login interface
+- SQLite database integration
 
- 1. Clone repository
+---
+
+## ⚙️ Setup
+
+### 1. Clone repo & install dependencies
 ```bash
 git clone https://github.com/JPretz/media-login-services.git
 cd media-login-services
+npm install
+
 
 2. Install Dependencies
 bash
