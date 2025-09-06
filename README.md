@@ -26,55 +26,60 @@ Secure token + data handling
 
 Screenshots of successful logins
 
-⚙️ Setup Instructions
-1. Clone the repo
-git clone https://github.com/YOUR-USERNAME/media-login-services.git
+⚙️  Setup Instructions
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/JPretz/media-login-services.git
 cd media-login-services
-
-2. Install dependencies
+2. Install Dependencies
+bash
+Copy code
 npm install
+3. Environment Variables
+Copy .env.example into a new .env file and update with your credentials:
 
-3. Configure environment variables
+bash
+Copy code
+cp .env.example .env
+GitHub OAuth Setup
+Go to GitHub Developer Settings → OAuth Apps.
 
-Create a .env file in the project root:
+Click New OAuth App.
 
+Set the Authorization callback URL to:
+
+bash
+Copy code
+http://localhost:3000/auth/github/callback
+Copy your Client ID and Client Secret.
+
+Add them to your .env file:
+
+ini
+Copy code
 GITHUB_CLIENT_ID=your_github_client_id
 GITHUB_CLIENT_SECRET=your_github_client_secret
+Google OAuth Setup
+Go to the Google Cloud Console.
 
+Navigate to APIs & Services > Credentials.
+
+Click Create Credentials → OAuth client ID.
+
+Choose Web Application and set the redirect URI to:
+
+bash
+Copy code
+http://localhost:3000/auth/google/callback
+Copy your Client ID and Client Secret.
+
+Add them to your .env file:
+
+ini
+Copy code
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
-
-PORT=3000
-
-🔑 Social Media Login Setup
-GitHub OAuth
-
-Go to GitHub Developer Settings
-.
-
-Create a new OAuth App:
-
-Homepage URL: http://localhost:3000
-
-Callback URL: http://localhost:3000/auth/github/callback
-
-Copy Client ID and Client Secret into .env.
-
-Google OAuth
-
-Go to Google Cloud Console
-.
-
-Create a new project → Enable Google+ API (or "Google Identity Services").
-
-Go to Credentials → Create OAuth 2.0 Client ID.
-
-Configure Authorized Redirect URI:
-
-http://localhost:3000/auth/google/callback
-
-
-Copy Client ID and Client Secret into .env.
 
 ▶️ Run the App
 npm start
