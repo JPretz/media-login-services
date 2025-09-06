@@ -96,49 +96,62 @@ Environment variables (.env) used for client secrets
 GitHub Repository: https://github.com/JPretz/media-login-services
 
 
-📸 Screenshots / Testing Evidence
 
-## Screenshots
+🖼️ Screenshots
+🔐 Local Login
 
-### Local Login (Invalid Credentials)
-[![Local Login Error](screenshots/local-login-error.png)](screenshots/local-login-error.png)
+Invalid username/password
 
-### GitHub OAuth
-- **Deny**  
-[![GitHub Deny](screenshots/github-deny.png)](screenshots/github-deny.png)
 
-- **Success**  
-[![GitHub Success](screenshots/github-success.png)](screenshots/github-success.png)
+🐙 GitHub OAuth
 
-### Google OAuth
-- **Consent Screen / Account Chooser**  
-[![Google OAuth Consent Screen Chooser](screenshots/Google%20OAuth%202.0%20Consent%20Screen%20Chooser.png)](screenshots/Google%20OAuth%202.0%20Consent%20Screen%20Chooser.png)
+GitHub Login Denied
 
-- **Account Chosen**  
-[![Google Account Chosen](screenshots/Google_chossen%20account.png)](screenshots/Google_chossen%20account.png)
 
-- **Deny**  
-[![Google Deny](screenshots/google-deny.png)](screenshots/google-deny.png)
+GitHub Login Success
 
-- **Success**  
-[![Google Success](screenshots/google-success.png)](screenshots/google-success.png)
 
-### Welcome Page
-- **Before Logout (Google)**  
-[![Welcome Page Before Logout Google](screenshots/welcome%20page%20befoe%20logout%20google.png)](screenshots/welcome%20page%20befoe%20logout%20google.png)
+🌐 Google OAuth
 
-- **After Logout**  
-[![Welcome Page After Logout](screenshots/Welcomepage%20after%20logout.png)](screenshots/Welcomepage%20after%20logout.png)
+Google Consent Screen
 
-### Session Persistence
-[![Session Persistence](screenshots/session-persistence.png)](screenshots/session-persistence.png)
 
-### Logout Flow
-- **Before Logout**  
-[![Logout Before](screenshots/logout-before.png)](screenshots/logout-before.png)
+Google Account Selection
 
-- **After Logout**  
-[![Logout After](screenshots/logout-after.png)](screenshots/logout-after.png)
+
+Alternate Google Account Selection
+
+
+Google Login Success
+
+
+Google Login Denied
+
+
+Google Login Error (Invalid Credentials)
+
+
+Google Welcome After Choosing Account
+
+
+Google Welcome Before Logout
+
+
+Google Welcome Before Logout (Alternate)
+
+
+Google Welcome After Logout
+
+
+📌 Session & Logout
+
+Session Persistence
+
+
+Logout (Before)
+
+
+Logout (After)
 
 
 📦 Submission Details
