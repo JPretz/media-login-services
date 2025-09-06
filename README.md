@@ -98,27 +98,47 @@ GitHub Repository: https://github.com/JPretz/media-login-services
 
 📸 Screenshots / Testing Evidence
 
-### Local Login
-- Local login error: ![Local Login Error](./screenshots/local-login-error.png)
-- Session persistence after login: ![Session Persistence](./screenshots/session-persistence.png)
-- Logout before action: ![Logout Before](./screenshots/logout-before.png)
-- Logout after action: ![Logout After](./screenshots/logout-after.png)
+## Screenshots
 
----
+### Local Login (Invalid Credentials)
+[![Local Login Error](screenshots/local-login-error.png)](screenshots/local-login-error.png)
 
-### GitHub Login
-- GitHub login denied: ![GitHub Deny](./screenshots/github-deny.png)
-- GitHub login successful: ![GitHub Success](./screenshots/github-success.png)
+### GitHub OAuth
+- **Deny**  
+[![GitHub Deny](screenshots/github-deny.png)](screenshots/github-deny.png)
 
----
+- **Success**  
+[![GitHub Success](screenshots/github-success.png)](screenshots/github-success.png)
 
-### Google Login
-- Google login denied/cancelled: ![Google Deny](./screenshots/google-deny.png)
-- Google login successful: ![Google Success](./screenshots/google-success.png)
-- Google account chooser: ![Google Account Chooser](./screenshots/Google_chossen account.png)
-- Google OAuth 2.0 consent screen: ![Google Consent Screen](./screenshots/Google OAuth 2.0 Consent Screen Chooser.png)
-- Google welcome page before logout: ![Google Welcome](./screenshots/welcome page before logout _google.png)
-- Welcome page after logout: ![Welcome After Logout](./screenshots/Welcomepage after logout.png)
+### Google OAuth
+- **Consent Screen / Account Chooser**  
+[![Google OAuth Consent Screen Chooser](screenshots/Google%20OAuth%202.0%20Consent%20Screen%20Chooser.png)](screenshots/Google%20OAuth%202.0%20Consent%20Screen%20Chooser.png)
+
+- **Account Chosen**  
+[![Google Account Chosen](screenshots/Google_chossen%20account.png)](screenshots/Google_chossen%20account.png)
+
+- **Deny**  
+[![Google Deny](screenshots/google-deny.png)](screenshots/google-deny.png)
+
+- **Success**  
+[![Google Success](screenshots/google-success.png)](screenshots/google-success.png)
+
+### Welcome Page
+- **Before Logout (Google)**  
+[![Welcome Page Before Logout Google](screenshots/welcome%20page%20befoe%20logout%20google.png)](screenshots/welcome%20page%20befoe%20logout%20google.png)
+
+- **After Logout**  
+[![Welcome Page After Logout](screenshots/Welcomepage%20after%20logout.png)](screenshots/Welcomepage%20after%20logout.png)
+
+### Session Persistence
+[![Session Persistence](screenshots/session-persistence.png)](screenshots/session-persistence.png)
+
+### Logout Flow
+- **Before Logout**  
+[![Logout Before](screenshots/logout-before.png)](screenshots/logout-before.png)
+
+- **After Logout**  
+[![Logout After](screenshots/logout-after.png)](screenshots/logout-after.png)
 
 
 📦 Submission Details
