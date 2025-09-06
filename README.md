@@ -1,131 +1,144 @@
-# 📖 Media Login Services
+Media Login Services
 
-A Node.js + Express app that supports **local authentication** (username/email + password) and **GitHub OAuth login** using Passport.js.
+This project demonstrates secure multi-login authentication using:
 
----
+Local login (username/password)
 
-## 🚀 Quick Test Guide for Professor
+GitHub OAuth 2.0
 
-Follow these steps to test the login services quickly:
+Google OAuth 2.0
 
-1. **Start the server**
-   ```bash
-   node server.js
-Server runs at: http://localhost:3000
+It uses Node.js, Express, Passport.js, and SQLite with proper session management and password hashing.
 
-Test Local Login
+🚀 Features
 
-Go to the home page.
+Local login with hashed passwords (bcrypt)
 
-Enter a valid username/email + password → redirects to welcome page.
+GitHub login via OAuth 2.0
 
-Enter wrong credentials → shows red banner: ⚠️ Invalid username or password.
+Google login via OAuth 2.0
 
-Test Signup
+Session persistence across logins
 
-Visit /signup from the homepage.
+Error handling with friendly messages
 
-Create a new account with username, email, and password.
+Secure token + data handling
 
-Login using the new credentials.
-
-Test GitHub Login
-
-Click Login with GitHub.
-
-If approved → redirects to GitHub Welcome Page showing your GitHub username/email.
-
-If authorization denied → redirects back to / with red banner:
-⚠️ GitHub login failed. Please try again.
-
-Logout
-
-Click Logout on either welcome page.
-
-You’ll be redirected back to the login screen.
-
-📌 Features
-
-Local signup & login with bcrypt password hashing
-
-GitHub OAuth login (passport-github2)
-
-Session persistence with express-session
-
-Error banners:
-
-⚠️ Invalid username or password
-
-⚠️ GitHub login failed. Please try again.
-
-Logout functionality
+Screenshots of successful logins
 
 ⚙️ Setup Instructions
-1. Clone Repository
-git clone https://github.com/JPretz/media-login-services.git
+1. Clone the repo
+git clone https://github.com/YOUR-USERNAME/media-login-services.git
 cd media-login-services
 
-2. Install Dependencies
+2. Install dependencies
 npm install
 
-3. Configure Environment Variables
+3. Configure environment variables
 
-Create a .env file in the root folder:
+Create a .env file in the project root:
 
 GITHUB_CLIENT_ID=your_github_client_id
 GITHUB_CLIENT_SECRET=your_github_client_secret
-SESSION_SECRET=supersecret
 
-4. Run the App
-node server.js
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+PORT=3000
+
+🔑 Social Media Login Setup
+GitHub OAuth
+
+Go to GitHub Developer Settings
+.
+
+Create a new OAuth App:
+
+Homepage URL: http://localhost:3000
+
+Callback URL: http://localhost:3000/auth/github/callback
+
+Copy Client ID and Client Secret into .env.
+
+Google OAuth
+
+Go to Google Cloud Console
+.
+
+Create a new project → Enable Google+ API (or "Google Identity Services").
+
+Go to Credentials → Create OAuth 2.0 Client ID.
+
+Configure Authorized Redirect URI:
+
+http://localhost:3000/auth/google/callback
 
 
-Then visit: http://localhost:3000
+Copy Client ID and Client Secret into .env.
 
-🛠 Troubleshooting
+▶️ Run the App
+npm start
 
-GitHub Login Denied
 
-If you cancel/deny GitHub authorization → redirected to / with banner:
-⚠️ GitHub login failed. Please try again.
+Visit:
+👉 http://localhost:3000
 
-Invalid Local Login
+🧪 Testing Login Flows
+Local Login
 
-Wrong username/password → red banner on homepage.
+Signup with username/email/password
 
-Session Issues
+Login with those credentials
 
-If you get logged out after refresh, check your SESSION_SECRET in .env.
+See Welcome screen with user info
 
-OAuth Redirect URI
+GitHub Login
 
-Make sure your GitHub OAuth app callback is set to:
+Click Login with GitHub
 
-http://localhost:3000/auth/github/callback
+Authorize app
 
-🌐 Project URL
+Redirects to GitHub Welcome Page with username + email
 
-GitHub Repository: https://github.com/JPretz/media-login-services
+Google Login
 
----
+Click Login with Google
 
-## 📸 Screenshots
+Authorize app with Google
 
-### Test Local Login (Wrong Credentials)
-![Invalid login error](screenshots/local-login-error.png)
+Redirects to Google Welcome Page with username + email
 
-### Test GitHub Login (Success)
-![GitHub success](screenshots/github-success.png)
+📸 Screenshots / Testing Evidence
+🔑 GitHub Login Flow
 
-### Test GitHub Login (Deny Authorization)
-![GitHub deny](screenshots/github-deny.png)
+Local login error → screenshots/local-login-error.png
 
-### Test Session Persistence
-![Session persistence](screenshots/session-persistence.png)
+GitHub login success → screenshots/github-success.png
 
-### Test Logout
-**Before Logout (Welcome Page)**  
-![Logout before](screenshots/logout-before.png)
+GitHub login denied → screenshots/github-deny.png
 
-**After Logout (Login Page)**  
-![Logout after](screenshots/logout-after.png)
+Logout (before) → screenshots/logout-before.png
+
+Logout (after) → screenshots/logout-after.png
+
+Session persistence → screenshots/session-persistence.png
+
+🌐 Google Login Flow
+
+Google login success → screenshots/google-success.png
+
+Google login denied → screenshots/google-deny.png
+
+Google logout (before) → screenshots/google-logout-before.png
+
+Google logout (after) → screenshots/google-logout-after.png
+
+Google session persistence → screenshots/google-session-persistence.png
+
+📦 Submission Details
+
+Project Repo URL: https://github.com/YOUR-USERNAME/media-login-services
+
+Included: Source code, .env.example, screenshots, README
+
+Implements: Local + GitHub + Google OAuth login, session persistence, error handling
