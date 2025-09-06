@@ -98,6 +98,7 @@ GitHub Repository: https://github.com/JPretz/media-login-services
 
 
 🖼️ Screenshots
+copy the screenshot and paste it in  browser
 
 🔐 Local Login  
 - [Invalid username/password](https://github.com/JPretz/media-login-services/blob/main/screenshots/local-login-error.png?raw=true)
