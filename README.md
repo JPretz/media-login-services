@@ -1,62 +1,66 @@
-📖 Project Summary
-📝 Overview
+# 📖 Media Login Services
 
-Media Login Services is a Node.js + Express web app that demonstrates authentication using both local login (username/email & password) and GitHub OAuth login. It uses Passport.js for authentication, SQLite for user storage, and session persistence for keeping users logged in.
+A Node.js + Express app that supports **local authentication** (username/email + password) and **GitHub OAuth login** using Passport.js.
 
-⚡ Features
+---
 
-🔐 Local login with username/email + password (with bcrypt hashing)
+## 🚀 Quick Test Guide for Professor
 
-🐙 GitHub OAuth login (Authorize/Deny flow)
+Follow these steps to test the login services quickly:
 
-🚪 Logout and session persistence
+1. **Start the server**
+   ```bash
+   node server.js
+Server runs at: http://localhost:3000
 
-⚠️ Error banners for wrong credentials or denied GitHub authorization
+Test Local Login
 
-🎨 Clean, centered, professional login UI
+Go to the home page.
 
-🚀 Quick Start
+Enter a valid username/email + password → redirects to welcome page.
 
-Clone repo
+Enter wrong credentials → shows red banner: ⚠️ Invalid username or password.
 
-git clone https://github.com/JPretz/media-login-services.git
-cd media-login-services
+Test Signup
 
+Visit /signup from the homepage.
 
-Install dependencies
+Create a new account with username, email, and password.
 
-npm install
+Login using the new credentials.
 
+Test GitHub Login
 
-Configure .env
+Click Login with GitHub.
 
-PORT=3000
-GITHUB_CLIENT_ID=your_github_client_id
-GITHUB_CLIENT_SECRET=your_github_client_secret
+If approved → redirects to GitHub Welcome Page showing your GitHub username/email.
 
+If authorization denied → redirects back to / with red banner:
+⚠️ GitHub login failed. Please try again.
 
-Run server
+Logout
 
-node server.js
+Click Logout on either welcome page.
 
+You’ll be redirected back to the login screen.
 
-Open http://localhost:3000
- in your browser
+📌 Features
 
-✅ Testing Scenarios
+Local signup & login with bcrypt password hashing
 
-Wrong local login → shows Invalid username or password banner
+GitHub OAuth login (passport-github2)
 
-GitHub login approved → Welcome page with username/email
+Session persistence with express-session
 
-GitHub login denied → GitHub login failed banner
+Error banners:
 
-Refresh → stays logged in
+⚠️ Invalid username or password
 
-Logout → back to login page
+⚠️ GitHub login failed. Please try again.
 
-📌 Media Login Services (Detailed Docs)
-🚀 Setup Instructions
+Logout functionality
+
+⚙️ Setup Instructions
 1. Clone Repository
 git clone https://github.com/JPretz/media-login-services.git
 cd media-login-services
@@ -66,76 +70,62 @@ npm install
 
 3. Configure Environment Variables
 
-Create a .env file in the root directory (not committed to GitHub). Use the .env.example as a template:
+Create a .env file in the root folder:
 
-PORT=3000
 GITHUB_CLIENT_ID=your_github_client_id
 GITHUB_CLIENT_SECRET=your_github_client_secret
+SESSION_SECRET=supersecret
 
-Create a GitHub OAuth App:
-
-Go to GitHub → Settings → Developer settings → OAuth Apps
-.
-
-Click New OAuth App.
-
-Homepage URL: http://localhost:3000
-
-Authorization callback URL: http://localhost:3000/auth/github/callback
-
-Copy your Client ID and Client Secret into your .env.
-
-4. Run the Server
+4. Run the App
 node server.js
 
 
-App will run at:
-👉 http://localhost:3000
+Then visit: http://localhost:3000
 
-🧪 Testing Scenarios (Expanded)
+🛠 Troubleshooting
 
-Local Login (Wrong Credentials)
+GitHub Login Denied
 
-Enter wrong username/password → see banner ⚠️ Invalid username or password.
+If you cancel/deny GitHub authorization → redirected to / with banner:
+⚠️ GitHub login failed. Please try again.
 
-GitHub Login (Authorize)
+Invalid Local Login
 
-Login with GitHub → redirected to Welcome Page with your username/email.
+Wrong username/password → red banner on homepage.
 
-GitHub Login (Deny Authorization)
+Session Issues
 
-On GitHub OAuth screen → click Cancel/Deny → redirected back with banner ⚠️ GitHub login failed. Please try again.
+If you get logged out after refresh, check your SESSION_SECRET in .env.
 
-Session Persistence
+OAuth Redirect URI
 
-Login → refresh → still logged in.
+Make sure your GitHub OAuth app callback is set to:
 
-Logout
+http://localhost:3000/auth/github/callback
 
-Click Logout → redirected to login page.
+🌐 Project URL
 
-📸 Screenshots / Recordings
+GitHub Repository: https://github.com/JPretz/media-login-services
 
-✅ Login page (with GitHub + local login)
+---
 
-✅ Wrong credentials error banner
+## 📸 Screenshots
 
-✅ GitHub Welcome page (with username & email)
+### Test Local Login (Wrong Credentials)
+![Invalid login error](screenshots/local-login-error.png)
 
-✅ GitHub login failed banner
+### Test GitHub Login (Success)
+![GitHub success](screenshots/github-success.png)
 
-✅ Logout screen
+### Test GitHub Login (Deny Authorization)
+![GitHub deny](screenshots/github-deny.png)
 
-🔧 Troubleshooting
+### Test Session Persistence
+![Session persistence](screenshots/session-persistence.png)
 
-Error: Invalid Client ID/Secret → Check .env matches your GitHub OAuth App keys.
+### Test Logout
+**Before Logout (Welcome Page)**  
+![Logout before](screenshots/logout-before.png)
 
-Error: Cannot find module 'sqlite3' → Run npm install sqlite3.
-
-Still logged out after refresh → Ensure express-session middleware is working correctly.
-
-Accidentally pushed .env → Remove with git rm --cached .env, regenerate your GitHub secret, commit, and push again.
-
-🌐 Project Repository
-
-🔗 https://github.com/JPretz/media-login-services
+**After Logout (Login Page)**  
+![Logout after](screenshots/logout-after.png)
