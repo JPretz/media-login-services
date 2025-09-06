@@ -100,56 +100,29 @@ GitHub Repository: https://github.com/JPretz/media-login-services
 🖼️ Screenshots
 
 🔐 Local Login  
-Invalid username/password  
-![Local Login Error](https://github.com/JPretz/media-login-services/blob/main/screenshots/local-login-error.png?raw=true)
+- [Invalid username/password](https://github.com/JPretz/media-login-services/blob/main/screenshots/local-login-error.png?raw=true)
 
 🐙 GitHub OAuth  
-GitHub Login Denied  
-![GitHub Deny](https://github.com/JPretz/media-login-services/blob/main/screenshots/github-deny.png?raw=true)  
-
-GitHub Login Success  
-![GitHub Success](https://github.com/JPretz/media-login-services/blob/main/screenshots/github-success.png?raw=true)
+- [GitHub Login Denied](https://github.com/JPretz/media-login-services/blob/main/screenshots/github-deny.png?raw=true)  
+- [GitHub Login Success](https://github.com/JPretz/media-login-services/blob/main/screenshots/github-success.png?raw=true)
 
 🌐 Google OAuth  
-Google Consent Screen  
-![Google Consent Screen](https://github.com/JPretz/media-login-services/blob/main/screenshots/Google%20OAuth%202.0%20Consent%20Screen%20Chooser.png?raw=true)  
-
-Google Account Selection  
-![Google Account Selection](https://github.com/JPretz/media-login-services/blob/main/screenshots/chossen%20account.png?raw=true)  
-
-Alternate Google Account Selection  
-![Google Account Alternate](https://github.com/JPretz/media-login-services/blob/main/screenshots/Google_chossen%20account.png?raw=true)  
-
-Google Login Success  
-![Google Success](https://github.com/JPretz/media-login-services/blob/main/screenshots/google-success.png?raw=true)  
-
-Google Login Denied  
-![Google Deny](https://github.com/JPretz/media-login-services/blob/main/screenshots/google-deny.png?raw=true)  
-
-Google Login Error (Invalid Credentials)  
-![Google Error Credentials](https://github.com/JPretz/media-login-services/blob/main/screenshots/error%20username%20passwrod%20google.png?raw=true)  
-
-Google Welcome After Choosing Account  
-![Google Welcome After Choosing Account](https://github.com/JPretz/media-login-services/blob/main/screenshots/Welcome%20account%20after%20choosen%20account.png?raw=true)  
-
-Google Welcome Before Logout  
-![Google Welcome Before Logout](https://github.com/JPretz/media-login-services/blob/main/screenshots/welcome%20page%20befoe%20logout%20google.png?raw=true)  
-
-Google Welcome Before Logout (Alternate)  
-![Google Welcome Before Logout Alternate](https://github.com/JPretz/media-login-services/blob/main/screenshots/welcome%20page%20before%20logout%20_google.png?raw=true)  
-
-Google Welcome After Logout  
-![Google Welcome After Logout](https://github.com/JPretz/media-login-services/blob/main/screenshots/Welcomepage%20after%20logout.png?raw=true)  
+- [Google Consent Screen](https://github.com/JPretz/media-login-services/blob/main/screenshots/Google%20OAuth%202.0%20Consent%20Screen%20Chooser.png?raw=true)  
+- [Google Account Selection](https://github.com/JPretz/media-login-services/blob/main/screenshots/chossen%20account.png?raw=true)  
+- [Alternate Google Account Selection](https://github.com/JPretz/media-login-services/blob/main/screenshots/Google_chossen%20account.png?raw=true)  
+- [Google Login Success](https://github.com/JPretz/media-login-services/blob/main/screenshots/google-success.png?raw=true)  
+- [Google Login Denied](https://github.com/JPretz/media-login-services/blob/main/screenshots/google-deny.png?raw=true)  
+- [Google Login Error (Invalid Credentials)](https://github.com/JPretz/media-login-services/blob/main/screenshots/error%20username%20passwrod%20google.png?raw=true)  
+- [Google Welcome After Choosing Account](https://github.com/JPretz/media-login-services/blob/main/screenshots/Welcome%20account%20after%20choosen%20account.png?raw=true)  
+- [Google Welcome Before Logout](https://github.com/JPretz/media-login-services/blob/main/screenshots/welcome%20page%20befoe%20logout%20google.png?raw=true)  
+- [Google Welcome Before Logout (Alternate)](https://github.com/JPretz/media-login-services/blob/main/screenshots/welcome%20page%20before%20logout%20_google.png?raw=true)  
+- [Google Welcome After Logout](https://github.com/JPretz/media-login-services/blob/main/screenshots/Welcomepage%20after%20logout.png?raw=true)
 
 📌 Session & Logout  
-Session Persistence  
-![Session Persistence](https://github.com/JPretz/media-login-services/blob/main/screenshots/session-persistence.png?raw=true)  
+- [Session Persistence](https://github.com/JPretz/media-login-services/blob/main/screenshots/session-persistence.png?raw=true)  
+- [Logout (Before)](https://github.com/JPretz/media-login-services/blob/main/screenshots/logout-before.png?raw=true)  
+- [Logout (After)](https://github.com/JPretz/media-login-services/blob/main/screenshots/logout-after.png?raw=true)
 
-Logout (Before)  
-![Logout Before](https://github.com/JPretz/media-login-services/blob/main/screenshots/logout-before.png?raw=true)  
-
-Logout (After)  
-![Logout After](https://github.com/JPretz/media-login-services/blob/main/screenshots/logout-after.png?raw=true)
 
 
 📦 Submission Details
