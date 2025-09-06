@@ -1,0 +1,5 @@
+GitHub
+
+Client ID: Ov23liSdfaDvk5Ct7LJe
+
+Secret Client:  e8bc25e6e8d748af9311b92c4794136de7c26bb8
