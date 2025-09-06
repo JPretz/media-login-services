@@ -3,12 +3,12 @@ import session from "express-session";
 import passport from "passport";
 import { Strategy as GitHubStrategy } from "passport-github2";
 import { Strategy as LocalStrategy } from "passport-local";
+import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import dotenv from "dotenv";
 import bcrypt from "bcrypt";
 import db from "./db.js";
 import path from "path";
 import { fileURLToPath } from "url";
-import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 
 dotenv.config();
 
@@ -124,7 +124,7 @@ passport.use(
   )
 );
 
-// Local Username/Password Strategy
+// Local Strategy
 passport.use(
   new LocalStrategy(async (username, password, done) => {
     try {
@@ -145,16 +145,18 @@ passport.use(
   })
 );
 
-// Root route (login + error handling + welcome)
+// Root route
 app.get("/", (req, res) => {
   const error = req.query.error;
   let msg = "";
   if (error === "local") msg = "⚠️ Invalid username or password";
   if (error === "github") msg = "⚠️ GitHub login failed. Please try again.";
-  if (error === "google") msg = "⚠️ Google login failed. Please try again."; // ✅ added
+  if (error === "google")
+    msg = "⚠️ Google login failed or was cancelled. Please try again.";
+
+  console.log("🔎 DEBUG - error param:", error); // ✅ log to terminal
 
   if (req.isAuthenticated()) {
-    // Logged-in view
     res.send(`
       <div style="max-width:500px; margin:80px auto; font-family:sans-serif; text-align:center;">
         <h1 style="margin-bottom:10px;">Welcome ${req.user.username}</h1>
@@ -167,7 +169,6 @@ app.get("/", (req, res) => {
       </div>
     `);
   } else {
-    // Login view
     res.send(`
       <div style="max-width:400px; margin:80px auto; font-family:sans-serif; text-align:center; padding:25px; border:1px solid #ddd; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);">
         <h1 style="margin-bottom:20px;">Welcome to the Media Login</h1>
@@ -217,102 +218,32 @@ app.get("/", (req, res) => {
 // Google login
 app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
 
-// Google callback with error handling
+// Google callback with deny/cancel handling
 app.get(
   "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "/?error=google" }),
-  (req, res) => {
-    res.redirect("/google-welcome");
+  (req, res, next) => {
+    passport.authenticate("google", (err, user) => {
+      if (err || !user) {
+        console.log("❌ Google login failed:", err);
+        return res.redirect("/?error=google"); // redirect with error flag
+      }
+      req.logIn(user, (err) => {
+        if (err) return res.redirect("/?error=google");
+        return res.redirect("/google-welcome");
+      });
+    })(req, res, next);
   }
 );
 
-// Show Google welcome page
+// Google welcome page
 app.get("/google-welcome", (req, res) => {
-  if (!req.isAuthenticated()) {
-    return res.redirect("/");
-  }
+  if (!req.isAuthenticated()) return res.redirect("/");
   res.send(`
     <h1 style="text-align:center; color:#333;">Google Welcome Page</h1>
     <h2 style="text-align:center;">Welcome ${req.user.username}</h2>
     <p style="text-align:center;">Email: ${req.user.email || "N/A"}</p>
     <div style="text-align:center;">
       <a href="/logout"><button style="padding:10px 20px; background:#f44336; color:#fff; border:none; border-radius:5px;">Logout</button></a>
-    </div>
-  `);
-});
-
-// Signup page
-app.get("/signup", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "signup.html"));
-});
-
-// Handle signup form
-app.post("/signup", async (req, res) => {
-  const { username, email, password } = req.body;
-  try {
-    const existing = await db.get(
-      "SELECT * FROM users WHERE username = ? OR email = ?",
-      username,
-      email
-    );
-    if (existing) {
-      return res.send("⚠️ Username or email already exists. Try again.");
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    await db.run(
-      "INSERT INTO users (username, email, password) VALUES (?, ?, ?)",
-      username,
-      email,
-      hashedPassword
-    );
-    res.redirect("/");
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Something went wrong!");
-  }
-});
-
-// Local login
-app.post(
-  "/login",
-  passport.authenticate("local", { failureRedirect: "/?error=local" }),
-  (req, res) => {
-    res.redirect("/");
-  }
-);
-
-// GitHub login
-app.get(
-  "/auth/github",
-  passport.authenticate("github", { scope: ["user:email"] })
-);
-
-// GitHub callback with error handling
-app.get(
-  "/auth/github/callback",
-  passport.authenticate("github", { failureRedirect: "/?error=github" }),
-  (req, res) => {
-    res.redirect("/github-welcome");
-  }
-);
-
-// GitHub welcome page
-app.get("/github-welcome", (req, res) => {
-  if (!req.isAuthenticated()) {
-    return res.redirect("/");
-  }
-  res.send(`
-    <div style="max-width:500px; margin:80px auto; font-family:sans-serif; text-align:center;">
-      <h1 style="color:#333;">GitHub Welcome Page</h1>
-      <h2>Welcome ${req.user.username}</h2>
-      <p>Email: ${req.user.email || "N/A"}</p>
-      <a href="/logout">
-        <button style="padding:10px 20px; background:#f44336; color:#fff; border:none; border-radius:5px; cursor:pointer;">
-          Logout
-        </button>
-      </a>
     </div>
   `);
 });
@@ -325,7 +256,6 @@ app.get("/logout", (req, res, next) => {
   });
 });
 
-// Start server
 app.listen(PORT, () =>
   console.log(`✅ Server running at http://localhost:${PORT}`)
 );
